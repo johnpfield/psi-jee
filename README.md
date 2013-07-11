@@ -106,32 +106,32 @@ As shown below, you will need to add a `<dependency>` element to the existing `<
 With the indicated configuration, this plugin will ensure that the psi-jee-1.0.0.jar file gets included on the `Classpath:` entry, within the `/META-INF/MANIFEST.MF` file which will be bundled into your EJB jar.
 
 ```xml
-	<dependencies>
+        <dependencies>
 	...
-	   <dependency>
-		<groupId>com.gopivotal.security</groupId>
-		<artifactId>psi-jee</artifactId>
-		<version>1.0.0</version>
-		<type>jar</type>
-	   </dependency>
-	</dependencies>
+           <dependency>
+                <groupId>com.gopivotal.security</groupId>
+                <artifactId>psi-jee</artifactId>
+                <version>1.0.0</version>
+                <type>jar</type>
+           </dependency>
+        </dependencies>
 
-	<build>
-	  <plugins>
-	    <plugin>
-	      <groupId>org.apache.maven.plugins</groupId>
-	      <artifactId>maven-jar-plugin</artifactId>
-	      <version>2.2</version>
-		<configuration>
-	          <archive>
-	            <manifest>
-	              <addClasspath>true</addClasspath>
-		    </manifest>
-		  </archive>
-		</configuration>
-	     </plugin>
-	   </plugins>
-	 </build>
+        <build>
+          <plugins>
+            <plugin>
+              <groupId>org.apache.maven.plugins</groupId>
+              <artifactId>maven-jar-plugin</artifactId>
+              <version>2.2</version>
+              <configuration>
+                <archive>
+                  <manifest>
+                    <addClasspath>true</addClasspath>
+                  </manifest>
+                </archive>
+              </configuration>
+            </plugin>
+          </plugins>
+        </build>
 ```
 
 # Demo 
