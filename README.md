@@ -117,7 +117,9 @@ With the indicated configuration, this plugin will ensure that the psi-jee-1.0.0
         </dependencies>
 
         <build>
+          ...
           <plugins>
+            ...
             <plugin>
               <groupId>org.apache.maven.plugins</groupId>
               <artifactId>maven-jar-plugin</artifactId>
