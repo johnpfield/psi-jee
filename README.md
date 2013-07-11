@@ -44,7 +44,7 @@ You can download Geronimo from [here.](http://geronimo.apache.org/downloads.html
 In general, the following steps are to be followed:
 
 1. Install and run Geronimo as per [these instructions.](http://geronimo.apache.org/GMOxDOC30/quick-start-apache-geronimo-for-the-impatient.html)
-2. Build and install the Pivotal Security Interceptor.  
+2. Build and install the Pivotal Security Interceptor. 
 3. Using the Geronimo management console, install the PSI jar file into the Geronimo repository.
 4. Finally, amend your application EAR file to enable the Interceptor on the desired EJB method(s), and redeploy.
 
@@ -59,9 +59,11 @@ The build procedure for the PSI is quite simple.  If this works you are in busin
 
 The generated JAR file can then be found in the `psi-jee/target` subdirectory (and in your local Maven repository).  This JAR can be deployed to Geronimo via the operators console. 
 
-Log into the Geronimo console, e.g. point your browser at http://localhost:8080/console and authenticate as the system manager.  Once in the console pages, look to the left hand side pane and choose the Navigator's `Advanced` console view.  Next, in the tree, view choose `Resources`.  Below Resources, choose `Repository`.  From the `Repository Viewer` page, locate the `Add Archive to Repository` heading and choose the `browse...` button.
+Log into the Geronimo console, e.g. point your browser at http://localhost:8080/console and authenticate as the system manager.  Once in the console pages, look to the left hand side pane and choose the Navigator's `Advanced` console view.  Next, in the tree view, choose `Resources`.  Below `Resources`, choose `Repository`. 
 
-Navigate to the JAR file on your local disk.  Enter the groupId as "com.gopivotal.security", and then click `install` to upload the JAR to the repository.  If all goes well, you should see a confirmation message, and the PSI JAR should appear in the list of components on the bottom half of the page.  The interceptor is now ready for use in your application.
+From the `Repository Viewer` page, locate the `Add Archive to Repository` heading, and then choose the `browse...` button.  Navigate to the JAR file on your local disk.  Enter the groupId as "com.gopivotal.security", and then click `install` to upload the JAR to the repository. 
+
+If all goes well, you should see a confirmation message, and the PSI JAR should appear in the list of components on the bottom half of the page.  The interceptor is now ready for use in your application.
 
 ### Update Application Deployment Descriptor and Redeploy
 
