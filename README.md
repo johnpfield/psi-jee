@@ -126,5 +126,9 @@ Authenticate if and as needed.  Then, access any function that will cause an inv
 2013-07-11 11:11:28,691 INFO  [EjbPolicyEnforcement] The callerPrincipal is: johnfield
  
 ```
+
+# Related Work
+
+If you need a complete working example of how to configure your EAR file for the interceptor (or just need a simple standalone EJB application as a testbed), you can use the [mytime] (https://github.com/johnpfield/mytime) application.  This application includes both a Web tier and an EJB tier, and provides a simple stateless session bean with multiple business methods that you can intercept.
  
 
