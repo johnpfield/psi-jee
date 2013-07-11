@@ -30,13 +30,13 @@ A future version of this project may implement an actual security enforcement by
   * Add Your Name Here (`my-mail@my-company.com`)
 
 
-### Prerequisites
+## Prerequisites
 
 * A GIT client
 * Apache Maven 3.x
 * Apache Geronimo 3.x
 
-## Quick Start
+# Quick Start
 
 You'll need to have Apache Geronimo 3.x or another standards-compliant J2EE container in which to deploy your EAR file.
 You can download Geronimo from [here.](http://geronimo.apache.org/downloads.html)
@@ -44,19 +44,11 @@ You can download Geronimo from [here.](http://geronimo.apache.org/downloads.html
 In general, the following steps are to be followed:
 
 1. Install and run Geronimo as per [these instructions.](http://geronimo.apache.org/GMOxDOC30/quick-start-apache-geronimo-for-the-impatient.html)
+2. Build and install the Pivotal Security Interceptor.  
+3. Using the Geronimo management console, install the PSI jar file into the Geronimo repository.
+4. Finally, amend your application EAR file to enable the Interceptor on the desired EJB method(s), and redeploy.
 
-2. Build and install the Pivotal Security Interceptor.  If this works, you are in business:
-
-    $ git clone git://github.com/johnpfield/psi-jee.git
-    $ cd psi-jee
-    $ mvn clean install
-
-This will create the JAR file in the psi-jee target directory, which you can then deploy using the Geronimo management console.
-
-3. Finally, amend your application EAR file to enable the Interceptor on the desired EJB methods, and redeploy.
-
-
-### Detailed Instructions for Build and Deploy
+## Detailed Instructions for Build and Deploy
 
 
 The build procedure for the PSI is quite simple.  If this works you are in business:
@@ -105,7 +97,7 @@ Next, associate the interceptor with the appropriate EJB methods by including an
 	</assembly-descriptor>
 ```
 
-Finally, make sure your Maven POM file is updated to include the dependency for the psi-jee-1.0.0.jar, as shown below.
+Finally, make sure you update the Maven POM file for your application so that it includes the dependency for the psi-jee-1.0.0.jar, as shown below.
 
 ```xml
 	<dependencies>
@@ -118,11 +110,7 @@ Finally, make sure your Maven POM file is updated to include the dependency for 
 	</dependencies>
 ```
 
-This should be included in the POM used to build your (WAR|EJB-JAR|EAR...TBD).
-
-
-
-## Demo 
+# Demo 
 
 Point your browser at the home page of your application on the Geronimo server, i.e. `http://localhost:8080/myapp/` 
 
@@ -137,21 +125,4 @@ Authenticate if and as needed.  Then, access any function that will cause an inv
  
 ```
  
-
-## More ...
-
-
-### Discussion
-
-How does it work??
-
-* Point 1
-
-* Point 2
-
-* Point 3
-
-### More
-
-
 
