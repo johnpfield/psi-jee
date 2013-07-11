@@ -67,7 +67,7 @@ If all goes well, you should see a confirmation message, and the PSI JAR should 
 
 ### Update Application Deployment Descriptor and Redeploy
 
-You will need to add the interceptor to the target application EAR file.  The application's `META-INF/ejb-jar.xml` file must be updated to include the interceptor definition as shown in the code snippet below:
+You will need to add the interceptor to the target application EAR file.  The target application's `META-INF/ejb-jar.xml` file must be updated to include the interceptor definition as shown in the code snippet below:
 
 ```xml
     <enterprise-beans>
@@ -83,7 +83,7 @@ You will need to add the interceptor to the target application EAR file.  The ap
     </interceptors>
 ```
 
-Next, associate the interceptor with the appropriate EJB methods by including an interceptor binding within the `<assembly-descriptor>` element:
+Next, associate the declared interceptor with the appropriate EJB methods by including an `<interceptor-binding>` element within the `<assembly-descriptor>` element:
 
 ```xml
 	<assembly-descriptor>
@@ -99,10 +99,15 @@ Next, associate the interceptor with the appropriate EJB methods by including an
 	</assembly-descriptor>
 ```
 
-Finally, make sure you update the Maven POM file for your application so that it includes the dependency for the psi-jee-1.0.0.jar, as shown below.
+Finally, make sure that you update the Maven POM file for your application EAR so that it includes the dependency on the interceptor jar file, i.e. the psi-jee-1.0.0.jar. 
+
+As shown below, you will need to add a `<dependency>` element to the existing `<dependencies>`, as well as using the `maven-jar-plugin` within your `<build>` element. 
+
+With the indicated configuration, this plugin will ensure that the psi-jee-1.0.0.jar file gets included on the `Classpath:` entry, within the `/META-INF/MANIFEST.MF` file which will be bundled into your EJB jar.
 
 ```xml
 	<dependencies>
+	...
 	   <dependency>
 		<groupId>com.gopivotal.security</groupId>
 		<artifactId>psi-jee</artifactId>
@@ -110,6 +115,23 @@ Finally, make sure you update the Maven POM file for your application so that it
 		<type>jar</type>
 	   </dependency>
 	</dependencies>
+
+	<build>
+	  <plugins>
+	    <plugin>
+	      <groupId>org.apache.maven.plugins</groupId>
+	      <artifactId>maven-jar-plugin</artifactId>
+	      <version>2.2</version>
+		<configuration>
+	          <archive>
+	            <manifest>
+	              <addClasspath>true</addClasspath>
+		    </manifest>
+		  </archive>
+		</configuration>
+	     </plugin>
+	   </plugins>
+	 </build>
 ```
 
 # Demo 
