@@ -94,7 +94,7 @@ Next, associate the interceptor with the appropriate EJB methods by including an
             <method>
                <method-name>getTimePrivate</method-name>
             </method>    
-          </interceptor-binding>
+	  </interceptor-binding>
 
 	</assembly-descriptor>
 ```
